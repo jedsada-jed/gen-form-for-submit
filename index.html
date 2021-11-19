@@ -11,18 +11,30 @@
   <body>
     <div class="container">
       <div class="form-group">
-        <!-- <lable for="source">source</lable>
-        <textarea class="form-control" id="source" name="source"></textarea> -->
+        <lable for="action_url">action url</lable>
+        <input
+          type="text"
+          class="form-control"
+          id="action_url"
+          name="action_url"
+          value=""
+        />
       </div>
       <div class="form-group">
-        <input type="button" class="btn btn-primary" value="Set data" onclick="setData()" />
+        <lable for="source">source</lable>
+        <textarea class="form-control" id="source" name="source"></textarea>
       </div>
-      <form
-        id="form2c2p"
-        method="post"
-        action="https://demo2.2c2p.com/2C2PFrontEnd/RedirectV3/payment"
-      >
-        <div class="form-group">
+
+      <div class="form-group">
+        <input
+          type="button"
+          class="btn btn-info"
+          value="Set data"
+          onclick="setData()"
+        />
+      </div>
+      <form id="form" method="post" action="">
+        <!-- <div class="form-group">
           <lable for="version">version</lable>
           <input
             type="text"
@@ -211,36 +223,37 @@
             name="hash_value"
             value=""
           />
-        </div>
-
-        <input class="btn btn-primary" type="submit" value="OK" />
+        </div> -->
       </form>
       <script>
         function setData() {
-          const body = {
-            version: "",
-            merchant_id: "",
-            payment_description: "",
-            order_id: "",
-            user_defined_1: "",
-            user_defined_2: "",
-            user_defined_3: "",
-            user_defined_4: "",
-            user_defined_5: "",
-            paymentId: "",
-            amount: "",
-            currency: "",
-            result_url_1: "",
-            result_url_2:"",
-            payment_option: "",
-            ipp_interest_type: "",
-            default_lang: "",
-            ipp_period_filter: "",
-            hash_value: "",
-          };
+          try {
+            const rawSoruce = document.getElementById("source").value;
+            const soruce = JSON.parse(rawSoruce);
+            let elementStrs = ``;
+            for (const key in soruce) {
+              elementStrs += `
+              <div class="form-group">
+              <lable for="${key}">${key}</lable>
+              <input
+                type="text"
+                class="form-control"
+                id="${key}"
+                name="${key}"
+                value="${soruce[key]}"
+              />
+            </div>
+              `;
+            }
 
-          for (const key in body) {
-            document.getElementById(key).value = body[key];
+            elementStrs +=
+              '<input class="btn btn-primary" type="submit" value="OK" />';
+
+            document.getElementById("form").innerHTML = elementStrs;
+            document.getElementById("form").action =
+              document.getElementById("action_url").value;
+          } catch (error) {
+            console.log(error);
           }
         }
       </script>
