@@ -1,0 +1,249 @@
+<html>
+  <head>
+    <style></style>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-group">
+        <!-- <lable for="source">source</lable>
+        <textarea class="form-control" id="source" name="source"></textarea> -->
+      </div>
+      <div class="form-group">
+        <input type="button" class="btn btn-primary" value="Set data" onclick="setData()" />
+      </div>
+      <form
+        id="form2c2p"
+        method="post"
+        action="https://demo2.2c2p.com/2C2PFrontEnd/RedirectV3/payment"
+      >
+        <div class="form-group">
+          <lable for="version">version</lable>
+          <input
+            type="text"
+            class="form-control"
+            id="version"
+            name="version"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <lable for="merchant_id">merchant_id</lable>
+          <input
+            type="text"
+            class="form-control"
+            id="merchant_id"
+            name="merchant_id"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <lable for="payment_description">payment_description</lable>
+          <input
+            class="form-control"
+            type="text"
+            id="payment_description"
+            name="payment_description"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <lable for="order_id">order_id</lable>
+          <input
+            type="text"
+            class="form-control"
+            id="order_id"
+            name="order_id"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <lable for="user_defined_1">user_defined_1</lable>
+          <input
+            type="text"
+            class="form-control"
+            id="user_defined_1"
+            name="user_defined_1"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <lable for="user_defined_2">user_defined_2</lable>
+          <input
+            type="text"
+            class="form-control"
+            id="user_defined_2"
+            name="user_defined_2"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <lable for="user_defined_3">user_defined_3</lable>
+          <input
+            type="text"
+            class="form-control"
+            id="user_defined_3"
+            name="user_defined_3"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <lable for="user_defined_4">user_defined_4</lable>
+          <input
+            type="text"
+            class="form-control"
+            id="user_defined_4"
+            name="user_defined_4"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <lable for="user_defined_5">user_defined_5</lable>
+          <input
+            type="text"
+            class="form-control"
+            id="user_defined_5"
+            name="user_defined_5"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <lable for="paymentId">paymentId</lable>
+          <input
+            type="text"
+            class="form-control"
+            id="paymentId"
+            name="paymentId"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <lable for="amount">amount</lable>
+          <input
+            type="text"
+            class="form-control"
+            id="amount"
+            name="amount"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <lable for="currency">currency</lable>
+          <input
+            type="text"
+            class="form-control"
+            id="currency"
+            name="currency"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <lable for="result_url_1">result_url_1</lable>
+          <input
+            type="text"
+            class="form-control"
+            id="result_url_1"
+            name="result_url_1"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <lable for="result_url_2">result_url_2</lable>
+          <input
+            type="text"
+            class="form-control"
+            id="result_url_2"
+            name="result_url_2"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <lable for="payment_option">payment_option</lable>
+          <input
+            type="text"
+            class="form-control"
+            id="payment_option"
+            name="payment_option"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <lable for="ipp_interest_type">ipp_interest_type</lable>
+          <input
+            type="text"
+            class="form-control"
+            id="ipp_interest_type"
+            name="ipp_interest_type"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <lable for="default_lang">default_lang</lable>
+          <input
+            type="text"
+            class="form-control"
+            id="default_lang"
+            name="default_lang"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <lable for="ipp_period_filter">ipp_period_filter</lable>
+          <input
+            class="form-control"
+            type="text"
+            id="ipp_period_filter"
+            name="ipp_period_filter"
+            value=""
+          />
+        </div>
+        <div class="form-group">
+          <lable for="hash_value">hash_value</lable>
+          <input
+            type="text"
+            class="form-control"
+            id="hash_value"
+            name="hash_value"
+            value=""
+          />
+        </div>
+
+        <input class="btn btn-primary" type="submit" value="OK" />
+      </form>
+      <script>
+        function setData() {
+          const body = {
+            version: "",
+            merchant_id: "",
+            payment_description: "",
+            order_id: "",
+            user_defined_1: "",
+            user_defined_2: "",
+            user_defined_3: "",
+            user_defined_4: "",
+            user_defined_5: "",
+            paymentId: "",
+            amount: "",
+            currency: "",
+            result_url_1: "",
+            result_url_2:"",
+            payment_option: "",
+            ipp_interest_type: "",
+            default_lang: "",
+            ipp_period_filter: "",
+            hash_value: "",
+          };
+
+          for (const key in body) {
+            document.getElementById(key).value = body[key];
+          }
+        }
+      </script>
+    </div>
+  </body>
+</html>
